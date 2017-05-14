@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "风洞服务器端", "风动测试\风洞服务器端.csproj", "{399E4F5A-68AC-4A13-BA9A-CF1FBD20C034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "风洞客户端", "风动客户端\风洞客户端.csproj", "{63097A03-AA72-4C62-8A29-A0D4E9D72FC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "模拟数据", "模拟数据\WindowsFormsApplication12\模拟数据.csproj", "{5155F78A-1875-4CD1-8568-9923D5C6FF83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{399E4F5A-68AC-4A13-BA9A-CF1FBD20C034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399E4F5A-68AC-4A13-BA9A-CF1FBD20C034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399E4F5A-68AC-4A13-BA9A-CF1FBD20C034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399E4F5A-68AC-4A13-BA9A-CF1FBD20C034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63097A03-AA72-4C62-8A29-A0D4E9D72FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63097A03-AA72-4C62-8A29-A0D4E9D72FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63097A03-AA72-4C62-8A29-A0D4E9D72FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63097A03-AA72-4C62-8A29-A0D4E9D72FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5155F78A-1875-4CD1-8568-9923D5C6FF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5155F78A-1875-4CD1-8568-9923D5C6FF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5155F78A-1875-4CD1-8568-9923D5C6FF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5155F78A-1875-4CD1-8568-9923D5C6FF83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

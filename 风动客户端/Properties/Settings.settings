@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="风动测试.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PortName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM3</Value>
+    </Setting>
+    <Setting Name="zedGraph_time" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0.5</Value>
+    </Setting>
+    <Setting Name="csv_time" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="choosedata_front" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00000000000000000000000000000000</Value>
+    </Setting>
+    <Setting Name="choosedata_back" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00000000000000000000000000000000</Value>
+    </Setting>
+    <Setting Name="CurveFlag" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00000000000000000000000000000000</Value>
+    </Setting>
+    <Setting Name="PortName1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="vScrollBarValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PortName3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM28</Value>
+    </Setting>
+    <Setting Name="PortName4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM2</Value>
+    </Setting>
+    <Setting Name="PortName5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM3</Value>
+    </Setting>
+    <Setting Name="PortName2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
