@@ -13,7 +13,6 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using CCWin;
 
 namespace 风动测试
 {

@@ -648,8 +648,12 @@ namespace 风动测试
         //
         private void button1_Click(object sender, EventArgs e)
         {
-            if (button1.Text == "开启风机")
+            if (!serialPort5.IsOpen)
             {
+                serialPort5.Open();
+            }
+            if (button1.Text == "开启风机")
+            {             
                 //风机开启
                 button1.Text = "关闭风机";             
                 //serialPort2.Write(":FF0620000010CB" + "\r\n");          //反转
@@ -702,6 +706,10 @@ namespace 风动测试
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!serialPort5.IsOpen)
+            {
+                serialPort5.Open();
+            }
             serialPort5.Write(":FF0620020002D7" + "\r\n");
         }
         // end 风机
@@ -762,8 +770,8 @@ namespace 风动测试
             string[] dataChange = new string[32];     //存放转换后的数据。     
             double average_value_front = 0;
             double average_value_back = 0;
-            string temperature = "15";
-            string humidity = "80";
+            string temperature = serial.DhtTemp.ToString();
+            string humidity = serial.DhtHumi.ToString();
 
             lbAnalogMeter1.Value = Convert.ToInt16(temperature);
             lbAnalogMeter2.Value = Convert.ToInt16(humidity);

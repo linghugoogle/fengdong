@@ -159,7 +159,7 @@
             this.lbDigitalMeter2.BackColor = System.Drawing.Color.Black;
             this.lbDigitalMeter2.ForeColor = System.Drawing.Color.SpringGreen;
             this.lbDigitalMeter2.Format = "000.00";
-            this.lbDigitalMeter2.Location = new System.Drawing.Point(438, 102);
+            this.lbDigitalMeter2.Location = new System.Drawing.Point(438, 76);
             this.lbDigitalMeter2.Name = "lbDigitalMeter2";
             this.lbDigitalMeter2.Renderer = null;
             this.lbDigitalMeter2.Signed = false;
@@ -173,7 +173,7 @@
             this.lbDigitalMeter1.BackColor = System.Drawing.Color.Black;
             this.lbDigitalMeter1.ForeColor = System.Drawing.Color.SkyBlue;
             this.lbDigitalMeter1.Format = "000.00";
-            this.lbDigitalMeter1.Location = new System.Drawing.Point(438, 34);
+            this.lbDigitalMeter1.Location = new System.Drawing.Point(438, 8);
             this.lbDigitalMeter1.Name = "lbDigitalMeter1";
             this.lbDigitalMeter1.Renderer = null;
             this.lbDigitalMeter1.Signed = false;
@@ -876,7 +876,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 784);
+            this.ClientSize = new System.Drawing.Size(1280, 733);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);

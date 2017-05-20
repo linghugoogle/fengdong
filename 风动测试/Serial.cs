@@ -50,7 +50,11 @@ namespace 风动测试
             try
             {
                 str = serialPort1.ReadTo("\r\n");
-
+                if (str.Contains("DHT"))
+                {
+                    DhtTemp = Convert.ToInt16(str.Substring(str.IndexOf("DHT") + 3, str.IndexOf(",") - str.IndexOf("T") - 1));
+                    DhtHumi = Convert.ToInt16(str.Substring(str.IndexOf(",") + 1, str.Length - str.IndexOf(",") - 1));
+                }
                 int ch;
                 ch = Convert.ToInt16(str.Substring(str.IndexOf("CH") + 2, 2));
 
@@ -66,7 +70,11 @@ namespace 风动测试
             try
             {
                 str = serialPort2.ReadTo("\r\n");
-
+                if (str.Contains("DHT"))
+                {
+                    DhtTemp = Convert.ToInt16(str.Substring(str.IndexOf("DHT") + 3, str.IndexOf(",") - str.IndexOf("T") - 1));
+                    DhtHumi = Convert.ToInt16(str.Substring(str.IndexOf(",") + 1, str.Length - str.IndexOf(",") - 1));
+                }
                 int ch;
                 ch = Convert.ToInt16(str.Substring(str.IndexOf("CH") + 2, 2));
 
@@ -82,7 +90,11 @@ namespace 风动测试
             try
             {
                 str = serialPort3.ReadTo("\r\n");
-
+                if (str.Contains("DHT"))
+                {
+                    DhtTemp = Convert.ToInt16(str.Substring(str.IndexOf("DHT") + 3, str.IndexOf(",") - str.IndexOf("T") - 1));
+                    DhtHumi = Convert.ToInt16(str.Substring(str.IndexOf(",") + 1, str.Length - str.IndexOf(",") - 1));
+                }
                 int ch;
                 ch = Convert.ToInt16(str.Substring(str.IndexOf("CH") + 2, 2));
 
@@ -92,13 +104,19 @@ namespace 风动测试
             { }      
         }
 
+        public int DhtTemp;
+        public int DhtHumi;
         private void serialPort4_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             string str = null;
             try
             {
                 str = serialPort4.ReadTo("\r\n");
-
+                if (str.Contains("DHT"))
+                {
+                    DhtTemp = Convert.ToInt16(str.Substring(str.IndexOf("DHT") + 3, str.IndexOf(",") - str.IndexOf("T") - 1));
+                    DhtHumi = Convert.ToInt16(str.Substring(str.IndexOf(",") + 1, str.Length - str.IndexOf(",") - 1));
+                }
                 int ch;
                 ch = Convert.ToInt16(str.Substring(str.IndexOf("CH") + 2, 2));
 
