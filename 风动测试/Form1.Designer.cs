@@ -124,9 +124,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(120, 105);
+            this.pictureBox1.Size = new System.Drawing.Size(90, 94);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 119;
             this.pictureBox1.TabStop = false;
@@ -135,7 +135,7 @@
             // 
             this.zedGraphControl1.BackColor = System.Drawing.Color.Transparent;
             this.zedGraphControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.zedGraphControl1.Location = new System.Drawing.Point(463, 202);
+            this.zedGraphControl1.Location = new System.Drawing.Point(371, 202);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 100D;
@@ -144,7 +144,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(805, 489);
+            this.zedGraphControl1.Size = new System.Drawing.Size(650, 432);
             this.zedGraphControl1.TabIndex = 128;
             this.zedGraphControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zedGraphControl1_MouseDoubleClick);
             // 
@@ -154,7 +154,7 @@
             this.label45.BackColor = System.Drawing.Color.Transparent;
             this.label45.Font = new System.Drawing.Font("宋体", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label45.ForeColor = System.Drawing.Color.SpringGreen;
-            this.label45.Location = new System.Drawing.Point(645, 109);
+            this.label45.Location = new System.Drawing.Point(544, 104);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(95, 47);
             this.label45.TabIndex = 155;
@@ -164,13 +164,14 @@
             // 
             this.lbDigitalMeter2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbDigitalMeter2.BackColor = System.Drawing.Color.Black;
+            this.lbDigitalMeter2.Font = new System.Drawing.Font("宋体", 8F);
             this.lbDigitalMeter2.ForeColor = System.Drawing.Color.SpringGreen;
             this.lbDigitalMeter2.Format = "000.00";
-            this.lbDigitalMeter2.Location = new System.Drawing.Point(457, 102);
+            this.lbDigitalMeter2.Location = new System.Drawing.Point(390, 104);
             this.lbDigitalMeter2.Name = "lbDigitalMeter2";
             this.lbDigitalMeter2.Renderer = null;
             this.lbDigitalMeter2.Signed = false;
-            this.lbDigitalMeter2.Size = new System.Drawing.Size(182, 54);
+            this.lbDigitalMeter2.Size = new System.Drawing.Size(154, 47);
             this.lbDigitalMeter2.TabIndex = 149;
             this.lbDigitalMeter2.Value = 0D;
             // 
@@ -180,11 +181,11 @@
             this.lbDigitalMeter1.BackColor = System.Drawing.Color.Black;
             this.lbDigitalMeter1.ForeColor = System.Drawing.Color.SkyBlue;
             this.lbDigitalMeter1.Format = "000.00";
-            this.lbDigitalMeter1.Location = new System.Drawing.Point(457, 34);
+            this.lbDigitalMeter1.Location = new System.Drawing.Point(390, 36);
             this.lbDigitalMeter1.Name = "lbDigitalMeter1";
             this.lbDigitalMeter1.Renderer = null;
             this.lbDigitalMeter1.Signed = false;
-            this.lbDigitalMeter1.Size = new System.Drawing.Size(182, 54);
+            this.lbDigitalMeter1.Size = new System.Drawing.Size(154, 47);
             this.lbDigitalMeter1.TabIndex = 148;
             this.lbDigitalMeter1.Value = 0D;
             // 
@@ -194,7 +195,7 @@
             this.lbAnalogMeter2.BodyColor = System.Drawing.Color.Transparent;
             this.lbAnalogMeter2.Font = new System.Drawing.Font("楷体", 13F);
             this.lbAnalogMeter2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lbAnalogMeter2.Location = new System.Drawing.Point(282, 21);
+            this.lbAnalogMeter2.Location = new System.Drawing.Point(234, 21);
             this.lbAnalogMeter2.MaxValue = 100D;
             this.lbAnalogMeter2.MeterStyle = LBSoft.IndustrialCtrls.Meters.LBAnalogMeter.AnalogMeterStyle.Circular;
             this.lbAnalogMeter2.MinValue = 0D;
@@ -215,7 +216,7 @@
             this.lbAnalogMeter1.BodyColor = System.Drawing.Color.Transparent;
             this.lbAnalogMeter1.Font = new System.Drawing.Font("楷体", 13F);
             this.lbAnalogMeter1.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lbAnalogMeter1.Location = new System.Drawing.Point(142, 21);
+            this.lbAnalogMeter1.Location = new System.Drawing.Point(98, 21);
             this.lbAnalogMeter1.MaxValue = 50D;
             this.lbAnalogMeter1.MeterStyle = LBSoft.IndustrialCtrls.Meters.LBAnalogMeter.AnalogMeterStyle.Circular;
             this.lbAnalogMeter1.MinValue = 0D;
@@ -255,12 +256,12 @@
             this.Column2,
             this.Column18});
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 202);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 202);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 10;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(400, 577);
+            this.dataGridView1.Size = new System.Drawing.Size(356, 520);
             this.dataGridView1.TabIndex = 154;
             // 
             // Column17
@@ -296,7 +297,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox1.Location = new System.Drawing.Point(495, 697);
+            this.checkBox1.Location = new System.Drawing.Point(387, 640);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 155;
@@ -308,7 +309,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
             this.checkBox2.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox2.Location = new System.Drawing.Point(573, 697);
+            this.checkBox2.Location = new System.Drawing.Point(465, 640);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(72, 16);
             this.checkBox2.TabIndex = 156;
@@ -320,7 +321,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.BackColor = System.Drawing.Color.Transparent;
             this.checkBox3.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox3.Location = new System.Drawing.Point(651, 697);
+            this.checkBox3.Location = new System.Drawing.Point(543, 640);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(72, 16);
             this.checkBox3.TabIndex = 157;
@@ -332,7 +333,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
             this.checkBox4.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox4.Location = new System.Drawing.Point(729, 697);
+            this.checkBox4.Location = new System.Drawing.Point(621, 640);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(72, 16);
             this.checkBox4.TabIndex = 160;
@@ -344,7 +345,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.BackColor = System.Drawing.Color.Transparent;
             this.checkBox5.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox5.Location = new System.Drawing.Point(807, 697);
+            this.checkBox5.Location = new System.Drawing.Point(699, 640);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(72, 16);
             this.checkBox5.TabIndex = 159;
@@ -356,7 +357,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.BackColor = System.Drawing.Color.Transparent;
             this.checkBox6.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox6.Location = new System.Drawing.Point(885, 697);
+            this.checkBox6.Location = new System.Drawing.Point(777, 640);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(72, 16);
             this.checkBox6.TabIndex = 158;
@@ -368,7 +369,7 @@
             this.checkBox7.AutoSize = true;
             this.checkBox7.BackColor = System.Drawing.Color.Transparent;
             this.checkBox7.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox7.Location = new System.Drawing.Point(963, 697);
+            this.checkBox7.Location = new System.Drawing.Point(855, 640);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(72, 16);
             this.checkBox7.TabIndex = 166;
@@ -380,7 +381,7 @@
             this.checkBox8.AutoSize = true;
             this.checkBox8.BackColor = System.Drawing.Color.Transparent;
             this.checkBox8.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox8.Location = new System.Drawing.Point(1041, 697);
+            this.checkBox8.Location = new System.Drawing.Point(933, 640);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(72, 16);
             this.checkBox8.TabIndex = 165;
@@ -392,7 +393,7 @@
             this.checkBox9.AutoSize = true;
             this.checkBox9.BackColor = System.Drawing.Color.Transparent;
             this.checkBox9.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox9.Location = new System.Drawing.Point(1119, 697);
+            this.checkBox9.Location = new System.Drawing.Point(387, 662);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(72, 16);
             this.checkBox9.TabIndex = 164;
@@ -404,7 +405,7 @@
             this.checkBox10.AutoSize = true;
             this.checkBox10.BackColor = System.Drawing.Color.Transparent;
             this.checkBox10.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox10.Location = new System.Drawing.Point(495, 719);
+            this.checkBox10.Location = new System.Drawing.Point(465, 662);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(78, 16);
             this.checkBox10.TabIndex = 163;
@@ -416,7 +417,7 @@
             this.checkBox11.AutoSize = true;
             this.checkBox11.BackColor = System.Drawing.Color.Transparent;
             this.checkBox11.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox11.Location = new System.Drawing.Point(573, 719);
+            this.checkBox11.Location = new System.Drawing.Point(543, 662);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(78, 16);
             this.checkBox11.TabIndex = 162;
@@ -428,7 +429,7 @@
             this.checkBox12.AutoSize = true;
             this.checkBox12.BackColor = System.Drawing.Color.Transparent;
             this.checkBox12.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox12.Location = new System.Drawing.Point(651, 719);
+            this.checkBox12.Location = new System.Drawing.Point(621, 662);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(78, 16);
             this.checkBox12.TabIndex = 161;
@@ -440,7 +441,7 @@
             this.checkBox13.AutoSize = true;
             this.checkBox13.BackColor = System.Drawing.Color.Transparent;
             this.checkBox13.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox13.Location = new System.Drawing.Point(729, 719);
+            this.checkBox13.Location = new System.Drawing.Point(699, 662);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(78, 16);
             this.checkBox13.TabIndex = 172;
@@ -452,7 +453,7 @@
             this.checkBox14.AutoSize = true;
             this.checkBox14.BackColor = System.Drawing.Color.Transparent;
             this.checkBox14.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox14.Location = new System.Drawing.Point(807, 719);
+            this.checkBox14.Location = new System.Drawing.Point(777, 662);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(78, 16);
             this.checkBox14.TabIndex = 171;
@@ -464,7 +465,7 @@
             this.checkBox15.AutoSize = true;
             this.checkBox15.BackColor = System.Drawing.Color.Transparent;
             this.checkBox15.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox15.Location = new System.Drawing.Point(885, 719);
+            this.checkBox15.Location = new System.Drawing.Point(855, 662);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(78, 16);
             this.checkBox15.TabIndex = 170;
@@ -476,7 +477,7 @@
             this.checkBox16.AutoSize = true;
             this.checkBox16.BackColor = System.Drawing.Color.Transparent;
             this.checkBox16.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox16.Location = new System.Drawing.Point(963, 719);
+            this.checkBox16.Location = new System.Drawing.Point(934, 662);
             this.checkBox16.Name = "checkBox16";
             this.checkBox16.Size = new System.Drawing.Size(78, 16);
             this.checkBox16.TabIndex = 169;
@@ -488,7 +489,7 @@
             this.checkBox17.AutoSize = true;
             this.checkBox17.BackColor = System.Drawing.Color.Transparent;
             this.checkBox17.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox17.Location = new System.Drawing.Point(1041, 719);
+            this.checkBox17.Location = new System.Drawing.Point(387, 684);
             this.checkBox17.Name = "checkBox17";
             this.checkBox17.Size = new System.Drawing.Size(78, 16);
             this.checkBox17.TabIndex = 168;
@@ -500,7 +501,7 @@
             this.checkBox18.AutoSize = true;
             this.checkBox18.BackColor = System.Drawing.Color.Transparent;
             this.checkBox18.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox18.Location = new System.Drawing.Point(1119, 719);
+            this.checkBox18.Location = new System.Drawing.Point(465, 684);
             this.checkBox18.Name = "checkBox18";
             this.checkBox18.Size = new System.Drawing.Size(78, 16);
             this.checkBox18.TabIndex = 167;
@@ -512,7 +513,7 @@
             this.checkBox19.AutoSize = true;
             this.checkBox19.BackColor = System.Drawing.Color.Transparent;
             this.checkBox19.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox19.Location = new System.Drawing.Point(495, 741);
+            this.checkBox19.Location = new System.Drawing.Point(543, 684);
             this.checkBox19.Name = "checkBox19";
             this.checkBox19.Size = new System.Drawing.Size(78, 16);
             this.checkBox19.TabIndex = 181;
@@ -524,7 +525,7 @@
             this.checkBox20.AutoSize = true;
             this.checkBox20.BackColor = System.Drawing.Color.Transparent;
             this.checkBox20.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox20.Location = new System.Drawing.Point(573, 741);
+            this.checkBox20.Location = new System.Drawing.Point(621, 684);
             this.checkBox20.Name = "checkBox20";
             this.checkBox20.Size = new System.Drawing.Size(78, 16);
             this.checkBox20.TabIndex = 180;
@@ -536,7 +537,7 @@
             this.checkBox21.AutoSize = true;
             this.checkBox21.BackColor = System.Drawing.Color.Transparent;
             this.checkBox21.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox21.Location = new System.Drawing.Point(651, 741);
+            this.checkBox21.Location = new System.Drawing.Point(700, 684);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(78, 16);
             this.checkBox21.TabIndex = 179;
@@ -548,7 +549,7 @@
             this.checkBox22.AutoSize = true;
             this.checkBox22.BackColor = System.Drawing.Color.Transparent;
             this.checkBox22.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox22.Location = new System.Drawing.Point(729, 741);
+            this.checkBox22.Location = new System.Drawing.Point(777, 684);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.Size = new System.Drawing.Size(78, 16);
             this.checkBox22.TabIndex = 178;
@@ -560,7 +561,7 @@
             this.checkBox23.AutoSize = true;
             this.checkBox23.BackColor = System.Drawing.Color.Transparent;
             this.checkBox23.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox23.Location = new System.Drawing.Point(807, 741);
+            this.checkBox23.Location = new System.Drawing.Point(855, 684);
             this.checkBox23.Name = "checkBox23";
             this.checkBox23.Size = new System.Drawing.Size(78, 16);
             this.checkBox23.TabIndex = 177;
@@ -572,7 +573,7 @@
             this.checkBox24.AutoSize = true;
             this.checkBox24.BackColor = System.Drawing.Color.Transparent;
             this.checkBox24.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox24.Location = new System.Drawing.Point(885, 741);
+            this.checkBox24.Location = new System.Drawing.Point(934, 684);
             this.checkBox24.Name = "checkBox24";
             this.checkBox24.Size = new System.Drawing.Size(78, 16);
             this.checkBox24.TabIndex = 176;
@@ -584,7 +585,7 @@
             this.checkBox25.AutoSize = true;
             this.checkBox25.BackColor = System.Drawing.Color.Transparent;
             this.checkBox25.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox25.Location = new System.Drawing.Point(963, 741);
+            this.checkBox25.Location = new System.Drawing.Point(387, 706);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.Size = new System.Drawing.Size(78, 16);
             this.checkBox25.TabIndex = 175;
@@ -596,7 +597,7 @@
             this.checkBox26.AutoSize = true;
             this.checkBox26.BackColor = System.Drawing.Color.Transparent;
             this.checkBox26.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox26.Location = new System.Drawing.Point(1041, 741);
+            this.checkBox26.Location = new System.Drawing.Point(465, 706);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(78, 16);
             this.checkBox26.TabIndex = 174;
@@ -608,7 +609,7 @@
             this.checkBox27.AutoSize = true;
             this.checkBox27.BackColor = System.Drawing.Color.Transparent;
             this.checkBox27.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox27.Location = new System.Drawing.Point(1119, 741);
+            this.checkBox27.Location = new System.Drawing.Point(543, 706);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(78, 16);
             this.checkBox27.TabIndex = 173;
@@ -620,7 +621,7 @@
             this.checkBox32.AutoSize = true;
             this.checkBox32.BackColor = System.Drawing.Color.Transparent;
             this.checkBox32.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox32.Location = new System.Drawing.Point(807, 763);
+            this.checkBox32.Location = new System.Drawing.Point(934, 706);
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.Size = new System.Drawing.Size(78, 16);
             this.checkBox32.TabIndex = 186;
@@ -632,7 +633,7 @@
             this.checkBox31.AutoSize = true;
             this.checkBox31.BackColor = System.Drawing.Color.Transparent;
             this.checkBox31.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox31.Location = new System.Drawing.Point(729, 763);
+            this.checkBox31.Location = new System.Drawing.Point(855, 706);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.Size = new System.Drawing.Size(78, 16);
             this.checkBox31.TabIndex = 185;
@@ -644,7 +645,7 @@
             this.checkBox30.AutoSize = true;
             this.checkBox30.BackColor = System.Drawing.Color.Transparent;
             this.checkBox30.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox30.Location = new System.Drawing.Point(651, 763);
+            this.checkBox30.Location = new System.Drawing.Point(777, 706);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(78, 16);
             this.checkBox30.TabIndex = 184;
@@ -656,7 +657,7 @@
             this.checkBox29.AutoSize = true;
             this.checkBox29.BackColor = System.Drawing.Color.Transparent;
             this.checkBox29.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox29.Location = new System.Drawing.Point(573, 763);
+            this.checkBox29.Location = new System.Drawing.Point(700, 706);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(78, 16);
             this.checkBox29.TabIndex = 183;
@@ -668,7 +669,7 @@
             this.checkBox28.AutoSize = true;
             this.checkBox28.BackColor = System.Drawing.Color.Transparent;
             this.checkBox28.ForeColor = System.Drawing.Color.Blue;
-            this.checkBox28.Location = new System.Drawing.Point(495, 763);
+            this.checkBox28.Location = new System.Drawing.Point(621, 706);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(78, 16);
             this.checkBox28.TabIndex = 182;
@@ -744,10 +745,10 @@
             // 
             // vScrollBar1
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(1044, 9);
+            this.vScrollBar1.Location = new System.Drawing.Point(887, 21);
             this.vScrollBar1.Maximum = 6009;
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(40, 162);
+            this.vScrollBar1.Size = new System.Drawing.Size(31, 162);
             this.vScrollBar1.TabIndex = 187;
             this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             // 
@@ -756,7 +757,7 @@
             this.label43.AutoSize = true;
             this.label43.BackColor = System.Drawing.Color.Transparent;
             this.label43.Font = new System.Drawing.Font("楷体", 12F);
-            this.label43.Location = new System.Drawing.Point(196, 143);
+            this.label43.Location = new System.Drawing.Point(152, 143);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(40, 16);
             this.label43.TabIndex = 144;
@@ -767,7 +768,7 @@
             this.label42.AutoSize = true;
             this.label42.BackColor = System.Drawing.Color.Transparent;
             this.label42.Font = new System.Drawing.Font("楷体", 12F);
-            this.label42.Location = new System.Drawing.Point(341, 143);
+            this.label42.Location = new System.Drawing.Point(293, 143);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(32, 16);
             this.label42.TabIndex = 143;
@@ -778,7 +779,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("楷体", 12F);
-            this.label1.Location = new System.Drawing.Point(902, 155);
+            this.label1.Location = new System.Drawing.Point(697, 155);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 16);
             this.label1.TabIndex = 188;
@@ -790,7 +791,7 @@
             this.lbAnalogMeter3.BodyColor = System.Drawing.Color.Transparent;
             this.lbAnalogMeter3.Font = new System.Drawing.Font("楷体", 13F);
             this.lbAnalogMeter3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lbAnalogMeter3.Location = new System.Drawing.Point(839, 3);
+            this.lbAnalogMeter3.Location = new System.Drawing.Point(645, 3);
             this.lbAnalogMeter3.MaxValue = 1450D;
             this.lbAnalogMeter3.MeterStyle = LBSoft.IndustrialCtrls.Meters.LBAnalogMeter.AnalogMeterStyle.Circular;
             this.lbAnalogMeter3.MinValue = 0D;
@@ -800,7 +801,7 @@
             this.lbAnalogMeter3.ScaleColor = System.Drawing.Color.Blue;
             this.lbAnalogMeter3.ScaleDivisions = 6;
             this.lbAnalogMeter3.ScaleSubDivisions = 5;
-            this.lbAnalogMeter3.Size = new System.Drawing.Size(202, 196);
+            this.lbAnalogMeter3.Size = new System.Drawing.Size(176, 175);
             this.lbAnalogMeter3.TabIndex = 189;
             this.lbAnalogMeter3.Value = 0D;
             this.lbAnalogMeter3.ViewGlass = false;
@@ -814,9 +815,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 12F);
-            this.button1.Location = new System.Drawing.Point(746, 88);
+            this.button1.Location = new System.Drawing.Point(835, 107);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 68);
+            this.button1.Size = new System.Drawing.Size(46, 78);
             this.button1.TabIndex = 190;
             this.button1.Text = "开启风机";
             this.button1.UseVisualStyleBackColor = true;
@@ -824,9 +825,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(746, 34);
+            this.button2.Location = new System.Drawing.Point(835, 18);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(61, 23);
+            this.button2.Size = new System.Drawing.Size(46, 34);
             this.button2.TabIndex = 191;
             this.button2.Text = "复位";
             this.button2.UseVisualStyleBackColor = true;
@@ -835,7 +836,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("宋体", 12F);
-            this.button3.Location = new System.Drawing.Point(1130, 34);
+            this.button3.Location = new System.Drawing.Point(934, 32);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(61, 68);
             this.button3.TabIndex = 192;
@@ -847,7 +848,7 @@
             // 
             this.button4.Enabled = false;
             this.button4.Font = new System.Drawing.Font("宋体", 12F);
-            this.button4.Location = new System.Drawing.Point(1130, 110);
+            this.button4.Location = new System.Drawing.Point(934, 117);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(61, 68);
             this.button4.TabIndex = 193;
@@ -865,7 +866,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("宋体", 35.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.SkyBlue;
-            this.label2.Location = new System.Drawing.Point(645, 41);
+            this.label2.Location = new System.Drawing.Point(544, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 47);
             this.label2.TabIndex = 194;
@@ -876,7 +877,7 @@
             this.BtnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMin.BackColor = System.Drawing.Color.Transparent;
             this.BtnMin.BackgroundImage = global::风动测试.Properties.Resources.btn_min;
-            this.BtnMin.Location = new System.Drawing.Point(1190, 3);
+            this.BtnMin.Location = new System.Drawing.Point(931, 3);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Size = new System.Drawing.Size(26, 23);
             this.BtnMin.TabIndex = 136;
@@ -892,7 +893,7 @@
             this.BtnMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMax.BackColor = System.Drawing.Color.Transparent;
             this.BtnMax.BackgroundImage = global::风动测试.Properties.Resources.btn_max;
-            this.BtnMax.Location = new System.Drawing.Point(1220, 3);
+            this.BtnMax.Location = new System.Drawing.Point(961, 3);
             this.BtnMax.Name = "BtnMax";
             this.BtnMax.Size = new System.Drawing.Size(26, 23);
             this.BtnMax.TabIndex = 137;
@@ -908,7 +909,7 @@
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
             this.BtnClose.BackgroundImage = global::风动测试.Properties.Resources.btn_close;
-            this.BtnClose.Location = new System.Drawing.Point(1250, 3);
+            this.BtnClose.Location = new System.Drawing.Point(991, 3);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(26, 23);
             this.BtnClose.TabIndex = 138;
@@ -922,11 +923,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1208, 36);
+            this.textBox1.Location = new System.Drawing.Point(418, 18);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(60, 160);
             this.textBox1.TabIndex = 195;
+            this.textBox1.Visible = false;
             this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
             // Form1
@@ -934,8 +936,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 772);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1024, 732);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -991,6 +992,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.label45);
+            this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

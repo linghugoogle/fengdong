@@ -201,7 +201,7 @@ namespace 风动测试
         {
             serial.Serial_Init();       //串口初始化
             Parameter_Init();       //参数初始化
-            zedGraphControl1.Size = new Size(776, 577);     //曲线大小初始化
+            zedGraphControl1.Size = new Size(650, 520);     //曲线大小初始化
             
             //datagridview 格式设置          
             //行标题隐藏
@@ -209,7 +209,7 @@ namespace 风动测试
             
             dataGridView1.DefaultCellStyle.BackColor = Color.LightCyan;
             dataGridView1.DefaultCellStyle.ForeColor = Color.Blue;
-            dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 13F);
+            dataGridView1.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 11F);
             //列标题隐藏
             //dataGridView1.ColumnHeadersVisible = false;
             // 禁止用户改变DataGridView1的所有列的列宽
@@ -634,11 +634,11 @@ namespace 风动测试
             MouseDoubleClickFlag = !MouseDoubleClickFlag;
             if (MouseDoubleClickFlag == true)
             {
-                zedGraphControl1.Size = new Size(776, 577);
+                zedGraphControl1.Size = new Size(650, 520);
             }
             else
             {
-                zedGraphControl1.Size = new Size(776, 489);
+                zedGraphControl1.Size = new Size(650, 432);
             }
         }
 
