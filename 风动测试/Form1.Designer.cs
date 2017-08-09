@@ -135,7 +135,7 @@
             // 
             this.zedGraphControl1.BackColor = System.Drawing.Color.Transparent;
             this.zedGraphControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.zedGraphControl1.Location = new System.Drawing.Point(371, 202);
+            this.zedGraphControl1.Location = new System.Drawing.Point(387, 202);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 100D;
@@ -144,7 +144,7 @@
             this.zedGraphControl1.ScrollMinX = 0D;
             this.zedGraphControl1.ScrollMinY = 0D;
             this.zedGraphControl1.ScrollMinY2 = 0D;
-            this.zedGraphControl1.Size = new System.Drawing.Size(650, 432);
+            this.zedGraphControl1.Size = new System.Drawing.Size(625, 432);
             this.zedGraphControl1.TabIndex = 128;
             this.zedGraphControl1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.zedGraphControl1_MouseDoubleClick);
             // 
@@ -261,7 +261,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 10;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(356, 520);
+            this.dataGridView1.Size = new System.Drawing.Size(372, 520);
             this.dataGridView1.TabIndex = 154;
             // 
             // Column17

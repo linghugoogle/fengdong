@@ -201,7 +201,7 @@ namespace 风动测试
         {
             serial.Serial_Init();       //串口初始化
             Parameter_Init();       //参数初始化
-            zedGraphControl1.Size = new Size(650, 520);     //曲线大小初始化
+            zedGraphControl1.Size = new Size(633, 520);     //曲线大小初始化
             
             //datagridview 格式设置          
             //行标题隐藏
@@ -634,11 +634,11 @@ namespace 风动测试
             MouseDoubleClickFlag = !MouseDoubleClickFlag;
             if (MouseDoubleClickFlag == true)
             {
-                zedGraphControl1.Size = new Size(650, 520);
+                zedGraphControl1.Size = new Size(633, 520);
             }
             else
             {
-                zedGraphControl1.Size = new Size(650, 432);
+                zedGraphControl1.Size = new Size(633, 432);
             }
         }
 
@@ -783,8 +783,8 @@ namespace 风动测试
             //
             for (int i = 0; i < 32; i++)
             {
-                dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) / 5 + 0.095) / 0.009).ToString("000.00");
-                //dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) * numScale[i] * 3.3 * 2 / 4096 / 5 + 0.095) / 0.009).ToString("000.00");
+                //dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) / 5 + 0.095) / 0.009).ToString("000.00");
+                dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) * numScale[i] * 3.3 * 2 / 4096 / 5 + 0.095) / 0.009).ToString("000.00");
             }           
             //
             dataChange1 = dataChange;
