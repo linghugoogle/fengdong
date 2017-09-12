@@ -61,25 +61,13 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00000000000000000000000000000000")]
-        public string choosedata_front {
+        [global::System.Configuration.DefaultSettingValueAttribute("000000000000000000000000000000")]
+        public string choose_flag {
             get {
-                return ((string)(this["choosedata_front"]));
+                return ((string)(this["choose_flag"]));
             }
             set {
-                this["choosedata_front"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00000000000000000000000000000000")]
-        public string choosedata_back {
-            get {
-                return ((string)(this["choosedata_back"]));
-            }
-            set {
-                this["choosedata_back"] = value;
+                this["choose_flag"] = value;
             }
         }
         
@@ -97,7 +85,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM9")]
         public string PortName1 {
             get {
                 return ((string)(this["PortName1"]));
@@ -121,7 +109,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM28")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM11")]
         public string PortName3 {
             get {
                 return ((string)(this["PortName3"]));
@@ -133,7 +121,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM12")]
         public string PortName4 {
             get {
                 return ((string)(this["PortName4"]));
@@ -145,7 +133,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM8")]
         public string PortName5 {
             get {
                 return ((string)(this["PortName5"]));
@@ -157,7 +145,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM10")]
         public string PortName2 {
             get {
                 return ((string)(this["PortName2"]));
@@ -169,7 +157,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public string YMajorStep {
             get {
                 return ((string)(this["YMajorStep"]));
@@ -181,7 +169,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("110")]
         public string MAX {
             get {
                 return ((string)(this["MAX"]));
@@ -193,7 +181,7 @@ namespace 风动测试.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public string MIN {
             get {
                 return ((string)(this["MIN"]));

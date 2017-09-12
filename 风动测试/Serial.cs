@@ -14,8 +14,7 @@ namespace 风动测试
         public SerialPort serialPort2 = new SerialPort();
         public SerialPort serialPort3 = new SerialPort();
         public SerialPort serialPort4 = new SerialPort();
-
-
+      
         public void Serial_Init()
         {
             serialPort1.PortName = "COM9";

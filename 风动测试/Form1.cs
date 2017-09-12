@@ -31,6 +31,8 @@ namespace 风动测试
         private const long WS_CAPTION = 0x00C00000L;
 
         private GraphPane mGraphPane;
+
+        string Atmosphere = null;
         //目前定义了32个颜色，如果不够请再添加，以防后续数组溢出。可根据自己的喜好再次修改颜色
         System.Drawing.Color[] color = new System.Drawing.Color[32] { System.Drawing.Color.Blue, System.Drawing.Color.Red ,System.Drawing.Color.Green,System.Drawing.Color.Gold,System.Drawing.Color.Gray,System.Drawing.Color.SkyBlue,System.Drawing.Color.Black,System.Drawing.Color.DarkBlue, 
                                             System.Drawing.Color.DarkGray, System.Drawing.Color.DarkGreen, System.Drawing.Color.DarkOrange, System.Drawing.Color.DarkRed ,System.Drawing.Color.LightGray,
@@ -128,7 +130,6 @@ namespace 风动测试
         double[] numScale = new double[32];       //乘以一个系数减小误差
 
         char[] buf_front = new char[32];          //保存曲线选择的数据，32位每位对应一个传感器，1显示0不显示，front对应前端back对应后端
-        char[] buf_back = new char[32];
 
         public static string[,] set_value = new string[2, 32];   //xml中所存储的所有参数，选择参数时进行调用，程序结束时再进行存储。
 
@@ -202,8 +203,7 @@ namespace 风动测试
             textBox6.Text = Properties.Settings.Default.csv_time;
             textBox5.Text = Properties.Settings.Default.zedGraph_time;
 
-            buf_front = Properties.Settings.Default.choosedata_front.ToCharArray();         //读取曲线选择设置
-            buf_back = Properties.Settings.Default.choosedata_back.ToCharArray();
+            buf_front = Properties.Settings.Default.choose_flag.ToCharArray();         //读取曲线选择设置
 
             timerCsv.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.csv_time) * 1000);
             timerCure.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.zedGraph_time) * 1000);
@@ -218,7 +218,7 @@ namespace 风动测试
             serial.Serial_Init();       //串口初始化
             Parameter_Init();       //参数初始化
             zedGraphControl1.Size = new Size(633, 520);     //曲线大小初始化
-            
+
             //datagridview 格式设置          
             //行标题隐藏
             dataGridView1.RowHeadersVisible = false;
@@ -257,7 +257,7 @@ namespace 风动测试
             }
 
             Control.CheckForIllegalCrossThreadCalls = false;
-            StartSever();
+            StartSever();        
         }
       
         private void BtnClose_Click(object sender, EventArgs e)
@@ -276,7 +276,7 @@ namespace 风动测试
             char[] buf = new char[32];
             for (int n = 0; n < 32; n++)
             {
-                buf[n] = (char)(buf_front[n] | buf_back[n]);
+                buf[n] = (char)(buf_front[n]);
             }
 
             string filePathName = DateTime.Now.ToString("yyyyMd") + ".csv";
@@ -297,10 +297,10 @@ namespace 风动测试
                     fileWriter = new StreamWriter(filePathName, true, Encoding.Default);
                     fileWriter.Write("时间");
                     fileWriter.Write(",");
-                    fileWriter.Write("前端压力平均值(kPa)");
+                    fileWriter.Write("喉部流量计(kPa)");
                     fileWriter.Write(",");
-                    fileWriter.Write("后端压力平均值(kPa)");
-                    for (int i = 0; i < 32; i++)
+                    fileWriter.Write("口部流量计(kPa)");
+                    for (int i = 0; i < 30; i++)
                     {
                         fileWriter.Write(",");
                         fileWriter.Write("传感器{0}(kPa)", i + 1);
@@ -350,7 +350,7 @@ namespace 风动测试
             char[] buf = new char[32];
             for (int n = 0; n < 32; n++)
             {
-                buf[n] = (char)(buf_front[n] | buf_back[n]);
+                buf[n] = (char)(buf_front[n]);
             }
             for (int i = 0; i < 30; i++)
             {
@@ -463,72 +463,72 @@ namespace 风动测试
         //数据接收完成后
         private void RecieveCallBack(IAsyncResult AR)
         {
-            char[] buf = new char[32];
-            try
-            {
-                Socket RSocket = (Socket)AR.AsyncState;
-                int REnd = RSocket.EndReceive(AR);
-                string msg = Encoding.UTF8.GetString(MsgBuffer, 0, REnd);
-                //MessageList.Items.Add(msg);
-                textBox1.AppendText(msg);
-                if (msg == "start") //接收到客户端的启动命令，则置位发送标志
-                {
-                    SendFlag = true;
-                }
-                else if (msg == "connection")
-                {
-                    Setting();
-                }
-                else if (msg.Contains("Parameter"))
-                {
-                    //停止所有采集
-                    timerCsv.Enabled = false;
-                    timerCure.Enabled = false;
-                    button3.Enabled = true;
-                    button4.Enabled = false;
-                    serial.serialPort1.Close();
-                    serial.serialPort2.Close();
-                    serial.serialPort3.Close();
-                    serial.serialPort4.Close();
+            //char[] buf = new char[32];
+            //try
+            //{
+            //    Socket RSocket = (Socket)AR.AsyncState;
+            //    int REnd = RSocket.EndReceive(AR);
+            //    string msg = Encoding.UTF8.GetString(MsgBuffer, 0, REnd);
+            //    //MessageList.Items.Add(msg);
+            //    textBox1.AppendText(msg);
+            //    if (msg == "start") //接收到客户端的启动命令，则置位发送标志
+            //    {
+            //        SendFlag = true;
+            //    }
+            //    else if (msg == "connection")
+            //    {
+            //        Setting();
+            //    }
+            //    else if (msg.Contains("Parameter"))
+            //    {
+            //        //停止所有采集
+            //        timerCsv.Enabled = false;
+            //        timerCure.Enabled = false;
+            //        button3.Enabled = true;
+            //        button4.Enabled = false;
+            //        serial.serialPort1.Close();
+            //        serial.serialPort2.Close();
+            //        serial.serialPort3.Close();
+            //        serial.serialPort4.Close();
 
-                    Properties.Settings.Default.csv_time = msg.Substring(msg.IndexOf("Parameter") + 9, msg.IndexOf("!") - 9);
-                    Properties.Settings.Default.zedGraph_time = msg.Substring(msg.IndexOf("!") + 1, msg.IndexOf("@") - msg.IndexOf("!") - 1);
-                    Properties.Settings.Default.choosedata_front = msg.Substring(msg.IndexOf("@") + 1, msg.IndexOf("#") - msg.IndexOf("@") - 1);
-                    Properties.Settings.Default.choosedata_back = msg.Substring(msg.IndexOf("#") + 1, msg.IndexOf("$") - msg.IndexOf("#") - 1);
-                    Properties.Settings.Default.CurveFlag = msg.Substring(msg.IndexOf("$") + 1, msg.IndexOf("%") - msg.IndexOf("$") - 1);
-                    Properties.Settings.Default.vScrollBarValue = msg.Substring(msg.IndexOf("%") + 1, msg.IndexOf("^") - msg.IndexOf("%") - 1);
-                    Properties.Settings.Default.Save();
+            //        Properties.Settings.Default.csv_time = msg.Substring(msg.IndexOf("Parameter") + 9, msg.IndexOf("!") - 9);
+            //        Properties.Settings.Default.zedGraph_time = msg.Substring(msg.IndexOf("!") + 1, msg.IndexOf("@") - msg.IndexOf("!") - 1);
+            //        Properties.Settings.Default.choose_flag = msg.Substring(msg.IndexOf("@") + 1, msg.IndexOf("#") - msg.IndexOf("@") - 1);
+            //        Properties.Settings.Default.choosedata_back = msg.Substring(msg.IndexOf("#") + 1, msg.IndexOf("$") - msg.IndexOf("#") - 1);
+            //        Properties.Settings.Default.CurveFlag = msg.Substring(msg.IndexOf("$") + 1, msg.IndexOf("%") - msg.IndexOf("$") - 1);
+            //        Properties.Settings.Default.vScrollBarValue = msg.Substring(msg.IndexOf("%") + 1, msg.IndexOf("^") - msg.IndexOf("%") - 1);
+            //        Properties.Settings.Default.Save();
 
-                    buf_front = Properties.Settings.Default.choosedata_front.ToCharArray();         //读取曲线选择设置
-                    buf_back = Properties.Settings.Default.choosedata_back.ToCharArray();
+            //        buf_front = Properties.Settings.Default.choose_flag.ToCharArray();         //读取曲线选择设置
+            //        buf_back = Properties.Settings.Default.choosedata_back.ToCharArray();
 
-                    timerCsv.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.csv_time) * 1000);
-                    timerCure.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.zedGraph_time) * 1000);
+            //        timerCsv.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.csv_time) * 1000);
+            //        timerCure.Interval = (int)(Convert.ToDouble(Properties.Settings.Default.zedGraph_time) * 1000);
 
-                    //checkbox开启读取默认值
-                    buf = Properties.Settings.Default.CurveFlag.ToCharArray();         //读取曲线选择设置
+            //        //checkbox开启读取默认值
+            //        buf = Properties.Settings.Default.CurveFlag.ToCharArray();         //读取曲线选择设置
 
-                    for (int i = 0; i < 32; i++)
-                    {
-                        if (buf[i] == '1')
-                        {
-                            cbList[i].Checked = true;
-                        }
-                        else
-                        {
-                            cbList[i].Checked = false;
-                        }
-                    }
+            //        for (int i = 0; i < 32; i++)
+            //        {
+            //            if (buf[i] == '1')
+            //            {
+            //                cbList[i].Checked = true;
+            //            }
+            //            else
+            //            {
+            //                cbList[i].Checked = false;
+            //            }
+            //        }
 
-                    vScrollBar1.Value = Convert.ToInt16(Properties.Settings.Default.vScrollBarValue);
-                }
+            //        vScrollBar1.Value = Convert.ToInt16(Properties.Settings.Default.vScrollBarValue);
+            //    }
 
-                for (int i = 0; i < ClientNumb; i++)
-                {
-                    RSocket.BeginReceive(MsgBuffer, 0, MsgBuffer.Length, 0, new AsyncCallback(RecieveCallBack), RSocket);
-                }
-            }
-            catch { }
+            //    for (int i = 0; i < ClientNumb; i++)
+            //    {
+            //        RSocket.BeginReceive(MsgBuffer, 0, MsgBuffer.Length, 0, new AsyncCallback(RecieveCallBack), RSocket);
+            //    }
+            //}
+            //catch { }
 
         }
 
@@ -537,25 +537,25 @@ namespace 风动测试
         /// </summary>
         private void Setting()
         {
-            string str = "Parameter";
-            str += Properties.Settings.Default.csv_time + "!";
-            str += Properties.Settings.Default.zedGraph_time + "@";
-            str += Properties.Settings.Default.choosedata_front + "#";
-            str += Properties.Settings.Default.choosedata_back + "$";
-            str += Properties.Settings.Default.CurveFlag + "%";
-            str += Properties.Settings.Default.vScrollBarValue + "^";
+            //string str = "Parameter";
+            //str += Properties.Settings.Default.csv_time + "!";
+            //str += Properties.Settings.Default.zedGraph_time + "@";
+            //str += Properties.Settings.Default.choose_flag + "#";
+            //str += Properties.Settings.Default.choosedata_back + "$";
+            //str += Properties.Settings.Default.CurveFlag + "%";
+            //str += Properties.Settings.Default.vScrollBarValue + "^";
 
-            try
-            {
-                for (int i = 0; i < ClientNumb; i++)
-                {
-                    if (ClientSocket[i].Connected)
-                    {
-                        ClientSocket[i].Send(Encoding.Default.GetBytes(str), 0, str.Length, 0);
-                    }
-                }
-            }
-            catch { }
+            //try
+            //{
+            //    for (int i = 0; i < ClientNumb; i++)
+            //    {
+            //        if (ClientSocket[i].Connected)
+            //        {
+            //            ClientSocket[i].Send(Encoding.Default.GetBytes(str), 0, str.Length, 0);
+            //        }
+            //    }
+            //}
+            //catch { }
         }
         //end socket
 
@@ -590,8 +590,7 @@ namespace 风动测试
                     serial.serialPort2.Open();
                     serial.serialPort3.Open();
                     serial.serialPort4.Open();
-                    buf_front = Properties.Settings.Default.choosedata_front.ToCharArray();
-                    buf_back = Properties.Settings.Default.choosedata_back.ToCharArray();
+                    buf_front = Properties.Settings.Default.choose_flag.ToCharArray();
                 }
                 catch
                 {
@@ -749,6 +748,11 @@ namespace 风动测试
           
         bool SendFlag = false;  //是否给客户端发送数据的标志
 
+        int[] converBuf = new int[32] { 30,17,9,23,20,29,6,3,11,2,             //将传感器1、2、3.....转换成数组对应的数值
+                                        4,24,8,5,25,31,27,13,22,28,
+                                        15,18,12,32,16,26,1,10,14,21,
+                                        7,19};     
+
         private void timer4_Tick(object sender, EventArgs e)
         {
             int j = 8;
@@ -772,7 +776,8 @@ namespace 风动测试
             for (int i = 0; i < 32; i++)
             {
                 //dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) / 5 + 0.095) / 0.009).ToString("000.00");
-                dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) * numScale[i] * 3.3 * 2 / 4096 / 5 + 0.095) / 0.009).ToString("000.00");
+                //dataChange[i] = ((Convert.ToDouble(serial.SerialDataReceived[i]) * numScale[i] * 3.3 * 2 / 4096 / 5 + 0.095) / 0.009).ToString("000.000");
+                dataChange[converBuf[i]-1] = ((Convert.ToDouble(serial.SerialDataReceived[i]) * numScale[i] * 3.3 * 2 / 4096 / 5 + 0.095) / 0.009).ToString("000.000");
             }           
             //
             dataChange1 = dataChange;
@@ -786,7 +791,7 @@ namespace 风动测试
                 dataGridView1.Rows[i].Cells[3].Value = "";
             }
 
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (buf_front[i] == '1')
                 {
@@ -794,17 +799,6 @@ namespace 风动测试
                     dataGridView1.Rows[m].Cells[0].Value = "传感器" + (i + 1).ToString();
                     dataGridView1.Rows[m].Cells[1].Value = str_buf_front[i] + "KPa";
                     m++;
-                }
-            }
-
-            for (int i = 0; i < 32; i++)
-            {
-                if (buf_back[i] == '1')
-                {
-                    str_buf_back[i] = dataChange[i];
-                    dataGridView1.Rows[n].Cells[2].Value = "传感器" + (i + 1).ToString();
-                    dataGridView1.Rows[n].Cells[3].Value = str_buf_back[i] + "KPa";
-                    n++;
                 }
             }
 
@@ -816,16 +810,8 @@ namespace 风动测试
                     average_value_front += Convert.ToDouble(str_buf_front[i]);
                 }
             }
-            for (int i = 0; i < 30; i++)
-            {
-                if (buf_back[i] == '1')
-                {
-                    average_value_back += Convert.ToDouble(str_buf_back[i]);
-                }
-            }
 
             average_value_front = average_value_front / m;
-            average_value_back = average_value_back / n;
 
             //平均值
             //if (average_value_front > 0)
@@ -837,8 +823,8 @@ namespace 风动测试
             //    lbDigitalMeter2.Value = average_value_back;
             //}
 
-            lbDigitalMeter1.Value = average_value_front;
-            lbDigitalMeter2.Value = average_value_front;
+            lbDigitalMeter1.Value = double.Parse(dataChange[30]);
+            lbDigitalMeter2.Value = double.Parse(dataChange[31]);
             //
             //将串口接收的数据发送到socket客户端
             //
@@ -853,16 +839,6 @@ namespace 风动测试
                         str_buf_front[i] = dataChange[i];
                         str = str + (i + 1).ToString("00") + ",";
                         str = str + str_buf_front[i].PadLeft(6, '0') + ",";
-                    }
-                }
-                str = str + "back";
-                for (int i = 0; i < 32; i++)
-                {
-                    if (buf_back[i] == '1')
-                    {
-                        str_buf_back[i] = dataChange[i];
-                        str = str + (i + 1).ToString("00") + ",";
-                        str = str + str_buf_back[i].PadLeft(6, '0') + ",";
                     }
                 }
                 str = str + "DHT11:";
@@ -969,6 +945,11 @@ namespace 风动测试
                     cbList[i].Checked = false;
                 }
             }           
+        }
+
+        private void 大气压ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("大气压力：101.32KPa");
         }
     }
 }
