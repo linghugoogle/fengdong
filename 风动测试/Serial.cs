@@ -18,10 +18,10 @@ namespace 风动测试
 
         public void Serial_Init()
         {
-            serialPort1.PortName = Properties.Settings.Default.PortName1;
-            serialPort2.PortName = Properties.Settings.Default.PortName2;
-            serialPort3.PortName = Properties.Settings.Default.PortName3;
-            serialPort4.PortName = Properties.Settings.Default.PortName4;
+            serialPort1.PortName = "COM9";
+            serialPort2.PortName = "COM10";
+            serialPort3.PortName = "COM11";
+            serialPort4.PortName = "COM12";
             
             serialPort1.BaudRate = 115200;
             serialPort2.BaudRate = 115200;

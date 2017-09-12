@@ -30,7 +30,7 @@ namespace 风动测试
         private const int GWL_STYLE = (-16);
         private const long WS_CAPTION = 0x00C00000L;
 
-
+        private GraphPane mGraphPane;
         //目前定义了32个颜色，如果不够请再添加，以防后续数组溢出。可根据自己的喜好再次修改颜色
         System.Drawing.Color[] color = new System.Drawing.Color[32] { System.Drawing.Color.Blue, System.Drawing.Color.Red ,System.Drawing.Color.Green,System.Drawing.Color.Gold,System.Drawing.Color.Gray,System.Drawing.Color.SkyBlue,System.Drawing.Color.Black,System.Drawing.Color.DarkBlue, 
                                             System.Drawing.Color.DarkGray, System.Drawing.Color.DarkGreen, System.Drawing.Color.DarkOrange, System.Drawing.Color.DarkRed ,System.Drawing.Color.LightGray,
@@ -79,13 +79,11 @@ namespace 风动测试
             cbList.Add(checkBox28);
             cbList.Add(checkBox29);
             cbList.Add(checkBox30);
-            cbList.Add(checkBox31);
-            cbList.Add(checkBox32);
 
             //checkbox开启读取默认值
             buf = Properties.Settings.Default.CurveFlag.ToCharArray();         //读取曲线选择设置
 
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (buf[i] == '1')
                 {
@@ -97,7 +95,7 @@ namespace 风动测试
                 }
             }
             //依据color[]数组设置checkbox的颜色，并通过该数组与曲线的颜色关联
-            for(int i = 0; i < 32;i++)
+            for(int i = 0; i < 30;i++)
             {
                 cbList[i].ForeColor = color[i];
                 cbList[i].CheckedChanged += new System.EventHandler(checkBox_CheckedChanged);
@@ -107,8 +105,8 @@ namespace 风动测试
         //checkbox变化事件
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            char[] buf = new char[32];
-            for (int i = 0; i < 32; i++)
+            char[] buf = new char[30];
+            for (int i = 0; i < 30; i++)
             {
                 if (cbList[i].Checked == true)
                 {
@@ -126,10 +124,10 @@ namespace 风动测试
         }
 
         string[] str_buf_front = new string[32];  //存放读取的AD数值，前20个数据。        
-        string[] str_buf_back = new string[32];  //存放读取的AD数值，后20个数据。     
-        double[] numScale = new double[32];    //乘以一个系数减小误差
+        string[] str_buf_back = new string[32];   //存放读取的AD数值，后20个数据。     
+        double[] numScale = new double[32];       //乘以一个系数减小误差
 
-        char[] buf_front = new char[32];        //保存曲线选择的数据，32位每位对应一个传感器，1显示0不显示，front对应前端back对应后端
+        char[] buf_front = new char[32];          //保存曲线选择的数据，32位每位对应一个传感器，1显示0不显示，front对应前端back对应后端
         char[] buf_back = new char[32];
 
         public static string[,] set_value = new string[2, 32];   //xml中所存储的所有参数，选择参数时进行调用，程序结束时再进行存储。
@@ -137,9 +135,7 @@ namespace 风动测试
 
         //曲线初始化
         private void init_zedgragh()
-        {
-            GraphPane mGraphPane;
-            
+        {                       
             zedGraphControl1.PanModifierKeys = Keys.None;//曲线可以左键拖拽
             zedGraphControl1.ZoomStepFraction = 0.1;//（这是鼠标滚轮缩放的比例大小，值越大缩放就越灵敏）
 
@@ -166,6 +162,17 @@ namespace 风动测试
             mGraphPane.YAxis.Scale.Min = 90;      //电压轴最小值0
             mGraphPane.YAxis.Scale.Max = 110;    //电压最大值
 
+            try
+            {
+                mGraphPane.YAxis.Scale.Min = Convert.ToDouble(textBox4.Text);      //电压轴最小值0
+                mGraphPane.YAxis.Scale.Max = Convert.ToDouble(textBox3.Text);    //电压最大值
+                mGraphPane.YAxis.Scale.MajorStep = Convert.ToDouble(textBox2.Text);     //刻度线的距离
+            }
+            catch
+            {
+                MessageBox.Show("参数错误！");
+            }
+
             // Display the Y axis grid lines
             mGraphPane.YAxis.MajorGrid.IsVisible = true;
             mGraphPane.YAxis.MinorGrid.IsVisible = true;
@@ -184,9 +191,17 @@ namespace 风动测试
             }
         }
 
+        //参数加载
+        #region     
         private void Parameter_Init()
         {
             //properties值读取
+            textBox4.Text = Properties.Settings.Default.MIN;
+            textBox3.Text = Properties.Settings.Default.MAX;
+            textBox2.Text = Properties.Settings.Default.YMajorStep;
+            textBox6.Text = Properties.Settings.Default.csv_time;
+            textBox5.Text = Properties.Settings.Default.zedGraph_time;
+
             buf_front = Properties.Settings.Default.choosedata_front.ToCharArray();         //读取曲线选择设置
             buf_back = Properties.Settings.Default.choosedata_back.ToCharArray();
 
@@ -196,6 +211,7 @@ namespace 风动测试
 
             vScrollBar1.Value = Convert.ToInt16(Properties.Settings.Default.vScrollBarValue);
         }
+        #endregion
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -336,7 +352,7 @@ namespace 风动测试
             {
                 buf[n] = (char)(buf_front[n] | buf_back[n]);
             }
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (cbList[i].Checked && buf[i] == '1')
                 {
@@ -391,48 +407,6 @@ namespace 风动测试
                 set_value[0, i] = (2507 / Convert.ToDouble(serial.SerialDataReceived[i])).ToString("0.00000");
             }
             MyXml.Set_Xml();
-        }
-
-        private void 串口设置ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Setting set = new Setting();
-            timerCsv.Enabled = false;
-            timerCure.Enabled = false;
-            timer4.Enabled = false;
-            if (serial.serialPort1.IsOpen)
-            {
-                serial.serialPort1.Close();
-            }
-            if (serial.serialPort2.IsOpen)
-            {
-                serial.serialPort2.Close();
-            }
-            if (serial.serialPort3.IsOpen)
-            {
-                serial.serialPort3.Close();
-            }
-            if (serial.serialPort4.IsOpen)
-            {
-                serial.serialPort4.Close();
-            }
-
-            if (set.ShowDialog() == DialogResult.OK)
-            {                                         
-                try
-                {
-                    serialPort5.PortName = Properties.Settings.Default.PortName5;
-                    serialPort5.Open();
-                    timerCsv.Interval = (int)(set.csv_time * 1000);
-                    timerCure.Interval = (int)(set.zedGraph_time * 1000);
-                    timer4.Interval = (int)(set.zedGraph_time * 1000);
-                }
-                catch
-                {
-                    MessageBox.Show("参数设置错误");
-                }              
-            }
-            button3.Enabled = true;
-            Setting();
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -635,10 +609,12 @@ namespace 风动测试
             if (MouseDoubleClickFlag == true)
             {
                 zedGraphControl1.Size = new Size(633, 520);
+                groupBox1.Visible = false;
             }
             else
             {
                 zedGraphControl1.Size = new Size(633, 432);
+                groupBox1.Visible = true;
             }
         }
 
@@ -718,10 +694,22 @@ namespace 风动测试
         {
             try
             {
-                serial.serialPort1.Open();
-                serial.serialPort2.Open();
-                serial.serialPort3.Open();
-                serial.serialPort4.Open();
+                if (!serial.serialPort1.IsOpen)
+                {
+                    serial.serialPort1.Open();
+                }
+                if (!serial.serialPort2.IsOpen)
+                {
+                    serial.serialPort2.Open();
+                }
+                if (!serial.serialPort3.IsOpen)
+                {
+                    serial.serialPort3.Open();
+                }
+                if (!serial.serialPort4.IsOpen)
+                {
+                    serial.serialPort4.Open();
+                }
                 button3.Enabled = false;
             }
             catch
@@ -821,14 +809,14 @@ namespace 风动测试
             }
 
             //平均值
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (buf_front[i] == '1')
                 {
                     average_value_front += Convert.ToDouble(str_buf_front[i]);
                 }
             }
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (buf_back[i] == '1')
                 {
@@ -839,15 +827,18 @@ namespace 风动测试
             average_value_front = average_value_front / m;
             average_value_back = average_value_back / n;
 
-            if (average_value_front > 0)
-            {
-                lbDigitalMeter1.Value = average_value_front;
-            }
-            if (average_value_back > 0)
-            {
-                lbDigitalMeter2.Value = average_value_back;
-            }
+            //平均值
+            //if (average_value_front > 0)
+            //{
+            //    lbDigitalMeter1.Value = average_value_front;
+            //}
+            //if (average_value_back > 0)
+            //{
+            //    lbDigitalMeter2.Value = average_value_back;
+            //}
 
+            lbDigitalMeter1.Value = average_value_front;
+            lbDigitalMeter2.Value = average_value_front;
             //
             //将串口接收的数据发送到socket客户端
             //
@@ -895,6 +886,89 @@ namespace 风动测试
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            timerCsv.Enabled = false;
+            timerCure.Enabled = false;
+            timer4.Enabled = false;
+            try
+            {
+                if (Convert.ToDouble(textBox4.Text) >= Convert.ToDouble(textBox3.Text))
+                {
+                    MessageBox.Show("参数设置错误！");
+                    return;
+                }
+                if ((Convert.ToDouble(textBox6.Text) < 0) && (Convert.ToDouble(textBox5.Text) < 0))
+                {
+                    MessageBox.Show("参数设置错误！");
+                    return;
+                }
+
+                timerCsv.Interval = (int)(Convert.ToDouble(textBox6.Text) * 1000);
+                timerCure.Interval = (int)(Convert.ToDouble(textBox5.Text) * 1000);
+                timer4.Interval = (int)(Convert.ToDouble(textBox5.Text) * 1000);
+                mGraphPane.YAxis.Scale.Min = Convert.ToDouble(textBox4.Text);      //电压轴最小值0
+                mGraphPane.YAxis.Scale.Max = Convert.ToDouble(textBox3.Text);      //电压最大值
+                mGraphPane.YAxis.Scale.MajorStep = Convert.ToDouble(textBox2.Text);     //刻度线的距离
+            }
+            catch
+            {
+                MessageBox.Show("请填写正确参数！");
+                return;
+            }
+            Properties.Settings.Default.YMajorStep = textBox2.Text;
+            Properties.Settings.Default.csv_time = textBox6.Text;
+            Properties.Settings.Default.zedGraph_time = textBox5.Text;
+            Properties.Settings.Default.Save();
+            zedGraphControl1.Size = new Size(633, 520);
+            groupBox1.Visible = false;
+            MouseDoubleClickFlag = true;
+            button3.Enabled = true;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.MAX = textBox3.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.MIN = textBox4.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                cbList[i].Checked = true;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                cbList[i].Checked = false;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                if (cbList[i].Checked == false)
+                {
+                    cbList[i].Checked = true;
+                }
+                else
+                {
+                    cbList[i].Checked = false;
+                }
+            }           
         }
     }
 }

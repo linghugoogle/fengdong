@@ -251,10 +251,10 @@ namespace WindowsFormsApplication12
                 try
                 {
                     button4.Text = "总关闭";
-                    serialPort1.PortName = "COM31";
-                    serialPort2.PortName = "COM32";
-                    serialPort3.PortName = "COM33";
-                    serialPort4.PortName = "COM34";
+                    serialPort1.PortName = "COM19";
+                    serialPort2.PortName = "COM20";
+                    serialPort3.PortName = "COM21";
+                    serialPort4.PortName = "COM22";
 
                     serialPort1.Open();
                     serialPort2.Open();

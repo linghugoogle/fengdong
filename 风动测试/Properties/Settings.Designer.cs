@@ -166,5 +166,41 @@ namespace 风动测试.Properties {
                 this["PortName2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string YMajorStep {
+            get {
+                return ((string)(this["YMajorStep"]));
+            }
+            set {
+                this["YMajorStep"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MAX {
+            get {
+                return ((string)(this["MAX"]));
+            }
+            set {
+                this["MAX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MIN {
+            get {
+                return ((string)(this["MIN"]));
+            }
+            set {
+                this["MIN"] = value;
+            }
+        }
     }
 }
